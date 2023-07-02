@@ -1,0 +1,57 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center; /* Center the form */
+  }
+  
+  h2 {
+    margin-top: 0; /* Remove top margin */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels to the left */
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(98, 0, 98); /* Change the button color to purple */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #9b019b; /* Darker shade of purple on hover */
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  

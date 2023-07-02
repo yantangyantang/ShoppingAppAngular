@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-page',
@@ -12,7 +14,7 @@ export class RegisterPageComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onRegisterSubmit(registerForm: NgForm): void {
     if (registerForm.valid) {
@@ -26,6 +28,7 @@ export class RegisterPageComponent {
         .subscribe(
           response => {
             console.log('Registration successful');
+            this.router.navigate(['/login']);
             // Handle any success actions or redirect to a success page
           },
           error => {
