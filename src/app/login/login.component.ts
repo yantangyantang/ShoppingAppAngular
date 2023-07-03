@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
+
   onLoginSubmit(loginForm: NgForm): void {
     if (loginForm.valid) {
       const LoginUserRequest = {
@@ -23,6 +25,9 @@ export class LoginComponent {
         .subscribe(
           response => {
             console.log('Login successful');
+            // Update isLoggedIn property in HeaderComponent
+            localStorage.setItem('isLoggedIn', 'true');
+            this.router.navigate(['/products']);
             // Handle any success actions or redirect to a success page
           },
           error => {

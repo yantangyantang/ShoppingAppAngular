@@ -1,0 +1,53 @@
+<div *ngIf="products && products.length > 0">
+  <ul>
+    <li *ngFor="let product of products">
+      <div class="content">
+        <div class="name-price">
+          <div class="name">{{ product.name }}</div>
+          <div class="price">Price: ${{ product.retail_price }}</div>
+        </div>
+        <!-- <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button> -->
+      </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="products && products.length === 0">
+  <p>No products available.</p>
+</div>
+
+
+<!-- <ul>
+  <li *ngFor="let product of products">
+    <a>
+      <img src="{{ product.imageUrl }}" alt="">
+      <div class="content">
+        <div class="name-price">
+          <div class="name">{{ product.name }}</div>
+          <div class="price">$ {{ product.price }}</div>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </a>
+  </li>
+</ul> -->
+  
+
+
+<!-- <ul>
+    <li *ngFor="let product of products">
+      <a>
+        <img src="{{ product.imageUrl }}" alt="">
+        <div class="content">
+          <div class="name-price">
+            <div class="name">{{ product.name }}</div>
+            <div class="price">$ {{ product.price }}</div>
+          </div>
+          <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </a>
+    </li>
+  </ul> -->
+  
+  
+  
+  

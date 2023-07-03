@@ -1,0 +1,74 @@
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+  }
+  
+  li a {
+    height: 25rem;
+    width: 25rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    overflow: hidden;
+    color: #7927ca;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  li a img {
+    height: 80%;
+    object-fit: cover;
+  }
+  
+  li a .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.3rem;
+  }
+  
+  li a .name-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  li a .name {
+    font-size: 1.2rem;
+    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
+    font-weight: normal;
+    margin-top: 0.5rem;
+    text-align: left;
+  }
+  
+  li a .price {
+    font-size: 1.0rem;
+    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
+    font-weight: normal;
+    margin-top: 0.5rem;
+  }
+  
+  li a .add-to-cart {
+    padding: 0.3rem 0.6rem;
+    background-color: #7927ca;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.1rem;
+  }
+  
