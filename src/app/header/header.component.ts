@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false; // Set the initial login status
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     // Retrieve the login status from localStorage
@@ -16,8 +19,18 @@ export class HeaderComponent implements OnInit {
 
   // Simulated logout function
   logout(): void {
-    // Perform logout logic here
-    localStorage.setItem('isLoggedIn', 'false');
-    this.isLoggedIn = false;
+    this.http.post('http://localhost:8080/auth/logout', {}).subscribe(
+      response => {
+        console.log("storage before logout: " + localStorage.length );
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('jwt');
+        this.isLoggedIn = false;
+        this.router.navigate(['/login']); // Redirect to /auth/login page
+        console.log("storage after logout: " + localStorage.length );
+      },
+      error => {
+        console.error('Logout failed', error);
+      }
+    )
   }
 }
