@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {}
 
   onLoginSubmit(loginForm: NgForm): void {
     if (loginForm.valid) {
@@ -21,14 +22,22 @@ export class LoginComponent {
         username: this.username
       };
 
-      this.http.post<any>('http://localhost:8080/auth/login', LoginUserRequest)
+      this.http.post<any>('http://localhost:8080/auth/login', LoginUserRequest,{ withCredentials: true })
         .subscribe(
           response => {
+            console.log(response);
             console.log('Login successful');
             // Update isLoggedIn property in HeaderComponent
             localStorage.setItem('isLoggedIn', 'true');
+            
+            const token = response.token;
+            console.log(token);
+            const expiryDate = new Date(response.expiryDate).getTime() / 1000; // Convert to seconds
+            console.log("middle")
+            localStorage.setItem("jwt", token);
             this.router.navigate(['/products']);
             // Handle any success actions or redirect to a success page
+            console.log("login end")
           },
           error => {
             console.log('Login failed');

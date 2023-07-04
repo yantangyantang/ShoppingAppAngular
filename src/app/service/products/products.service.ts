@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from 'src/app/shared/model/Product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    // console.log('ProductsService - getProducts()');
+    return this.http.get<Product[]>(this.apiUrl).pipe(
+      tap(products => console.log('Received products:', products)));
   }
 }
 // export class ProductsService {

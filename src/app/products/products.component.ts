@@ -11,15 +11,17 @@ import { CartService } from '../service/cart/cart.service';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService, private cartService: CartService) {}
 
   ngOnInit(): void {
+    // console.log("onInit test");
     this.getProducts();
   }
 
   getProducts(): void {
     this.productsService.getProducts().subscribe(
       (products: Product[]) => {
+        // console.log('Received products in component:', products);
         this.products = products;
       },
       (error) => {
@@ -27,6 +29,14 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
+
+  addToCart(product: Product): void {
+    console.log('Product for testing:', product); // Check if the product object is defined
+    this.cartService.addToCart(product);
+  }
+}
+
+
   // ngOnInit(): void {
   //   this.productsService.getFoods().subscribe(
   //     (foods: Food[]) => {
@@ -37,7 +47,7 @@ export class ProductsComponent implements OnInit {
   //     }
   //   );
   // }
-}
+// }
 
 // @Component({
 //   selector: 'app-products',
