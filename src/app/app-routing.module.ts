@@ -4,11 +4,13 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const routes: Routes = [ 
   { path: 'register-page', component: RegisterPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'watchlist', component: WatchlistComponent },
   { path: 'products', component: ProductsComponent }];
 
 @NgModule({
