@@ -1,0 +1,69 @@
+.watchlist {
+  margin-top: 2rem;
+}
+
+.watchlist h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.watchlist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.watchlist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 1.5rem;
+}
+
+.watchlist li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.watchlist li .product-info {
+  flex-grow: 1;
+}
+
+.watchlist li .product-info .name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+
+.watchlist li .product-info .price {
+  font-size: 1.1rem;
+  color: #777777;
+}
+
+.watchlist li button {
+  padding: 0.5rem 1rem;
+  background-color: #7927ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.watchlist li button:hover {
+  background-color: #6b23b3;
+}
+
+.empty-watchlist-message {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #777777;
+  text-align: center;
+}

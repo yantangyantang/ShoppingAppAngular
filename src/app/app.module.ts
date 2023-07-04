@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './service/jwt.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterPageComponent,
     ProductsComponent,
     CartComponent,
+    WatchlistComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { tap } from 'rxjs/operators';
 
 export class ProductsService {
   private apiUrl = 'http://localhost:8080/products'; 
+  private watchlistUrl = 'http://localhost:8080/watchlist';
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +19,13 @@ export class ProductsService {
     // console.log('ProductsService - getProducts()');
     return this.http.get<Product[]>(this.apiUrl).pipe(
       tap(products => console.log('Received products:', products)));
+  }
+  addToWatchlist(product: Product): Observable<any> {
+    const params = { productID: product.product_id };
+
+    return this.http.post(this.watchlistUrl, null, { params }).pipe(
+      tap(() => console.log('Added to watchlist:', product))
+    );
   }
 }
 // export class ProductsService {

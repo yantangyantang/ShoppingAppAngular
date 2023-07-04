@@ -17,30 +17,3 @@
   <div *ngIf="cart && cart.items.length === 0">
     <p>Your cart is empty.</p>
   </div>
-
-<!-- <ul>
-    <li *ngFor="let cartItem of cart.items">
-        <!-- <div>
-            <img [src] = "cartItem.product.imageUrl" [alt]="cartItem.product.name">
-        </div> -->
-        <!-- <div>
-            <select #quantitySelect (change) = "changeQuantity(cartItem, quantitySelect.value)"></select>
-        </div>
-        <div>
-            ${{cartItem.price}}
-        </div>
-
-        <div>
-            <button class = "remove-button" (click)="removeFromCart(cartItem)">
-                Remove
-            </button>
-        </div>
-    </li>
-</ul>
-
-<div class="checkout">
-    <div>
-        <div class="product-count">{{cart.items.length}}</div>
-        <div class="total-price">{{cart.totalPrice}}</div>
-    </div>
-</div> --> 
