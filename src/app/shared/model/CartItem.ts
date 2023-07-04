@@ -8,6 +8,8 @@ export class CartItem{
     quantity:number = 1;
     
     get price():number{
+        console.log('Product retail price:', this.product.retail_price);
+        console.log('Quantity:', this.quantity);
         return this.product.retail_price*this.quantity;
     }
 }

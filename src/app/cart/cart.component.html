@@ -8,10 +8,10 @@
           <div class="quantity">Quantity: {{ cartItem.quantity }}</div>
           <div class="subtotal">Subtotal: ${{ cartItem.price }}</div>
         </div>
-        <!-- <button (click)="removeFromCart(cartItem)">Remove</button> -->
+        <button (click)="removeFromCart(cartItem)">Remove</button>
       </li>
     </ul>
-    <div class="total-price">Total Price: ${{ cart.totalPrice }}</div>
+    <div class="total-price">Total Price: ${{ totalPrice }}</div>
     <button class="purchase-button" (click)="purchase()">Purchase</button>
   </div>
   <div *ngIf="cart && cart.items.length === 0">

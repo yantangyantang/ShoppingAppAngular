@@ -44,11 +44,11 @@ export class CartService {
     this.updateCartStorage();
   }
 
-  // removeFromCart(productId:number):void{
+  removeFromCart(productId:number):void{
 
-  //   this.cart.items = this.cart.items.filter(item => item.product.product_id !== productId);
-  //   this.updateCartStorage(); 
-  // }
+    this.cart.items = this.cart.items.filter(item => item.product.product_id !== productId);
+    this.updateCartStorage(); 
+  }
 
   changeQuantity(productId:number, quantity:number) {
     let cartItem = this.cart.items.find(item => item.product.product_id === productId);
