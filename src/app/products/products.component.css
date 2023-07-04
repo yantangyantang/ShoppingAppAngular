@@ -1,74 +1,75 @@
 ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0.5rem;
-  }
-  
-  li a {
-    height: 25rem;
-    width: 25rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    overflow: hidden;
-    color: #7927ca;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  li a img {
-    height: 80%;
-    object-fit: cover;
-  }
-  
-  li a .content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0.3rem;
-  }
-  
-  li a .name-price {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  li a .name {
-    font-size: 1.2rem;
-    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
-    font-weight: normal;
-    margin-top: 0.5rem;
-    text-align: left;
-  }
-  
-  li a .price {
-    font-size: 1.0rem;
-    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
-    font-weight: normal;
-    margin-top: 0.5rem;
-  }
-  
-  li a .add-to-cart {
-    padding: 0.3rem 0.6rem;
-    background-color: #7927ca;
-    color: white;
-    border: none;
-    border-radius: 0.3rem;
-    font-family: 'Grand Hotel', cursive; /* Use 'Satisfy' if you prefer that alternative */
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 0.1rem;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-0.2rem);
+}
+
+li a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333333;
+}
+
+li a img {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+li a .content {
+  padding: 1rem;
+}
+
+li a .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+li a .price {
+  font-size: 1rem;
+  color: #777777;
+  margin-top: 0.2rem;
+}
+
+li a .add-to-cart {
+  padding: 0.5rem 1rem;
+  background-color: #7927ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+li a .add-to-watchlist {
+  padding: 0.5rem 1rem;
+  background-color: #ffca28;
+  color: #333333;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
