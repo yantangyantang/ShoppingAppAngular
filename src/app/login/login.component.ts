@@ -35,7 +35,11 @@ export class LoginComponent {
             const expiryDate = new Date(response.expiryDate).getTime() / 1000; // Convert to seconds
             console.log("middle")
             localStorage.setItem("jwt", token);
-            this.router.navigate(['/products']);
+            this.router.navigate(['/products']).then(() => {
+              // Refresh the products page after login
+              window.location.reload();
+            });
+            
             // Handle any success actions or redirect to a success page
             console.log("login end")
           },
