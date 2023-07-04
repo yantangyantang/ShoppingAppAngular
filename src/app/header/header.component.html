@@ -1,12 +1,22 @@
 <header>
     <div class="container">
-        <a href="#" routerLink="/" class="logo">Super Duper Mart™</a>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" routerLink="/register-page">Register</a>
-                </li>
-            </ul>
-        </nav>
+      <a href="/products" class="logo">Super Duper Mart™</a>
+      <nav>
+        <ul>
+          <li *ngIf="!isLoggedIn; else loggedIn">
+            <a routerLink="/register-page">Register</a>
+            <a routerLink="/login">Login</a>
+          </li>
+          <ng-template #loggedIn>
+            <li>
+              <a routerLink="/cart">Cart</a>
+              <a (click)="logout()">Logout</a>
+
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
+  
+  

@@ -32,3 +32,12 @@ nav ul li a {
     padding: 1em;
     display: inline-block;
 }
+
+.login-register {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-register a {
+    margin-right: 1rem;
+  }
