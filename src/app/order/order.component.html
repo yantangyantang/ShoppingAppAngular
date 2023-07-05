@@ -5,7 +5,8 @@
     <li *ngFor="let order of orders">
       <div class="order-info">
         <div>Order ID: {{ order.order_id }}</div>
-        <!-- <div>Date: {{ order.date }}</div> -->
+        <div>Order Status: {{ getStatusText(order.order_status) }}</div>
+        <div>Date Placed: {{ formatDate(order.datePlaced) }}</div>
         <!-- Display other order details as needed -->
       </div>
     </li>
@@ -15,4 +16,5 @@
 <div *ngIf="orders.length === 0">
   <p>No orders found.</p>
 </div>
+
 

@@ -26,4 +26,21 @@ export class OrderComponent implements OnInit{
       }
     );
   }
+  getStatusText(status: number): string {
+    switch (status) {
+      case 0:
+        return 'Processing';
+      case 1:
+        return 'Completed';
+      case 2:
+        return 'Canceled';
+      default:
+        return 'Unknown';
+    }
+  }
+
+  formatDate(date: string): string {
+    const formattedDate = new Date(date);
+    return formattedDate.toLocaleDateString();
+  }
 }
