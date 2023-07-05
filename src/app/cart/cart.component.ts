@@ -9,21 +9,27 @@ import { CartItem } from '../shared/model/CartItem';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart!:Cart;
+  cart!: Cart;
+  totalPrice: number = 0;
+
   constructor(private cartService: CartService) {}
+
   ngOnInit(): void {
     this.setCart();
     console.log("cart component onInit");
   }
-  // removeFromCart(cartItem:CartItem):void{
-  //   if (!cartItem || !cartItem.product) {
-  //     console.error('CartItem or its product is undefined');
-  //     return;
-  //   }
-  //   this.cartService.removeFromCart(cartItem.product.product_id);
-  //   this.setCart();
-  // }
-  changeQuantity(cartItem:CartItem, quantityInstring:string):void {
+
+  removeFromCart(cartItem: CartItem): void {
+    if (!cartItem || !cartItem.product) {
+      console.error('CartItem or its product is undefined');
+      return;
+    }
+    this.cartService.removeFromCart(cartItem.product.product_id);
+    this.setCart();
+    this.calculateTotalPrice();
+  }
+
+  changeQuantity(cartItem: CartItem, quantityInstring: string): void {
     if (!cartItem || !cartItem.product) {
       console.error('CartItem or its product is undefined');
       return;
@@ -31,10 +37,14 @@ export class CartComponent implements OnInit {
     const quantity = parseInt(quantityInstring);
     this.cartService.changeQuantity(cartItem.product.product_id, quantity);
     this.setCart();
+    this.calculateTotalPrice();
   }
+
   setCart() {
     this.cart = this.cartService.getCart() || new Cart();
+    this.calculateTotalPrice(); 
   }
+
   purchase(): void {
     if (this.cartService.getCart().items.length === 0) {
       console.log('Cart is empty. Cannot proceed with the purchase.');
@@ -45,11 +55,19 @@ export class CartComponent implements OnInit {
       (response: any) => {
         console.log('Order placed!', response);
         this.cartService.cleanCart();
+        this.setCart();
+        this.calculateTotalPrice();
       },
       (error: any) => {
         console.error('Error during purchasing:', error);
       }
     );
   }
+
+  calculateTotalPrice(): void {
+    console.log('Cart items from component:', this.cart.items);
+    this.totalPrice = this.cart.items.reduce((total, cartItem) => total + cartItem.price, 0);
+  }
 }
+
 
