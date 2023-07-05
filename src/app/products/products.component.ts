@@ -4,6 +4,7 @@ import { Product } from '../shared/model/Product';
 import { CartService } from '../service/cart/cart.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -12,12 +13,21 @@ import { of } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  isAdmin: boolean = false;
 
-  constructor(private productsService: ProductsService, private cartService: CartService) {}
+  constructor(private http: HttpClient, private productsService: ProductsService, private cartService: CartService) {}
 
   ngOnInit(): void {
     // console.log("onInit test");
     this.getProducts();
+    this.http.get<boolean>('http://localhost:8080/isAdmin').subscribe(
+      isAdmin => {
+        this.isAdmin = isAdmin;
+      },
+      error => {
+        console.error('Failed to retrieve admin status:', error);
+      }
+    );
   }
 
   getProducts(): void {
