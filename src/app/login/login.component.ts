@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-// import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../service/auth/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
   onLoginSubmit(loginForm: NgForm): void {
     if (loginForm.valid) {
@@ -35,10 +36,28 @@ export class LoginComponent {
             const expiryDate = new Date(response.expiryDate).getTime() / 1000; // Convert to seconds
             console.log("middle")
             localStorage.setItem("jwt", token);
-            this.router.navigate(['/products']).then(() => {
-              // Refresh the products page after login
-              window.location.reload();
-            });
+
+            // Check if the user is an admin
+            this.authService.checkAdmin().subscribe(
+              isAdmin => {
+                if (isAdmin) {
+                  // Redirect to admin dashboard
+                  this.router.navigate(['/admin-dashboard']).then(() => {
+                    window.location.reload()
+                  });
+                } else {
+                  // Redirect to regular user product page
+                  this.router.navigate(['/products']).then(() => {
+                    // Refresh the products page after login
+                    window.location.reload();
+                  });
+                }
+              },
+              error => {
+                console.error('Error checking admin status:', error);
+                // Handle error if needed
+              }
+            );
             
             // Handle any success actions or redirect to a success page
             console.log("login end")

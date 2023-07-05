@@ -7,6 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemsComponent } from './order-items/order-items.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [ 
   { path: 'register-page', component: RegisterPageComponent },
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'watchlist', component: WatchlistComponent },
   { path: 'order', component:OrderComponent},
+  { path: 'orders', component:OrderComponent},
   { path: 'order-details/:orderId', component: OrderItemsComponent},
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'products', component: ProductsComponent }];
 
 @NgModule({

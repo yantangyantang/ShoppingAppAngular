@@ -1,24 +1,50 @@
-<header>
-    <div class="container">
-      <a href="/products" class="logo">Super Duper Mart™</a>
-      <nav>
-        <ul>
-          <li *ngIf="!isLoggedIn; else loggedIn">
-            <a routerLink="/register-page">Register</a>
-            <a routerLink="/login">Login</a>
+<!-- <header>
+  <div class="container">
+    <a routerLink="/products" class="logo">Super Duper Mart™</a>
+    <nav>
+      <ul>
+        <li *ngIf="!isLoggedIn; else loggedIn">
+          <a routerLink="/register-page">Register</a>
+          <a routerLink="/login">Login</a>
+        </li>
+        <ng-template #loggedIn>
+          <li>
+            <a routerLink="/order">Order History</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/watchlist">Watchlist</a>
+            <a *ngIf="isAdmin" routerLink="/admin-dashboard">Admin Dashboard</a>
+            <a (click)="logout()">Logout</a>
           </li>
-          <ng-template #loggedIn>
-            <li>
-              <a routerLink="/order">Order History</a>
-              <a routerLink="/cart">Cart</a>
-              <a routerLink="/watchlist">Watchlist</a>
-              <a (click)="logout()">Logout</a>
+        </ng-template>
+      </ul>
+    </nav>
+  </div>
+</header> -->
 
-            </li>
+<header>
+  <div class="container">
+    <a href="/products" class="logo">Super Duper Mart™</a>
+    <nav>
+      <ul>
+        <li *ngIf="!isLoggedIn; else loggedIn">
+          <a routerLink="/register-page">Register</a>
+          <a routerLink="/login">Login</a>
+        </li>
+        <ng-template #loggedIn>
+          <li *ngIf="!isAdmin; else adminLoggedIn">
+            <a routerLink="/order">Order History</a>
+            <a routerLink="/cart">Cart</a>
+            <a routerLink="/watchlist">Watchlist</a>
+            <a (click)="logout()">Logout</a>
+          </li>
+          <ng-template #adminLoggedIn>
+            <a routerLink="/orders">All Orders</a>
+            <a routerLink="/user-management">User Management</a>
+            <a routerLink="/product-management">Product Management</a>
+            <a (click)="logout()">Logout</a>
           </ng-template>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  
+        </ng-template>
+      </ul>
+    </nav>
+  </div>
+</header>
