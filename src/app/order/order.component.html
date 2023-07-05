@@ -1,23 +1,22 @@
-<h2>Order History</h2>
-
+<h2 class="order-heading">Order History</h2>
 <div *ngIf="orders.length > 0">
   <ul>
-    <li *ngFor="let order of orders">
+    <li *ngFor="let order of orders" [class.pending-order]="order.order_status === 0" [class.completed-order]="order.order_status === 1" [class.canceled-order]="order.order_status === 2" class="order-block">
       <div class="order-info">
-        <div>
+        <div class="order-details">
           <a href="javascript:void(0)" (click)="viewOrderDetails(order.order_id)">Order ID: {{ order.order_id }}</a>
+          <div>Order Status: {{ getStatusText(order.order_status) }}</div>
+          <div>UserID: {{ order.user_id }}</div>
+          <div>Date Placed: {{ formatDate(order.datePlaced) }}</div>
         </div>
-        <div>Order Status: {{ getStatusText(order.order_status) }}</div>
-        <div>Date Placed: {{ formatDate(order.datePlaced) }}</div>
         <div class="actions">
-          <button *ngIf="isAdmin && (order.order_status === 0)" (click)="updateOrderStatus(order.order_id, 1)">Complete Order</button>
-          <button *ngIf="isAdmin && (order.order_status === 0)" (click)="updateOrderStatus(order.order_id, 2)">Cancel Order</button>
+          <button class="complete-order" *ngIf="isAdmin && (order.order_status === 0)" (click)="updateOrderStatus(order.order_id, 1)">Complete Order</button>
+          <button class="cancel-order" *ngIf="isAdmin && (order.order_status === 0)" (click)="updateOrderStatus(order.order_id, 2)">Cancel Order</button>
         </div>
       </div>
     </li>
   </ul>
 </div>
-
 <div *ngIf="orders.length === 0">
   <p>No orders found.</p>
 </div>

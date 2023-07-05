@@ -1,18 +1,17 @@
-<h2>Order Items</h2>
-
+<h2 class="order-items-heading">Order Items</h2>
 <div *ngIf="orderItems.length > 0">
   <ul>
-    <li *ngFor="let orderItem of orderItems">
-      <div class="order-item">
-        <div>Product ID: {{ orderItem.id }}</div>
-        <div>Quantity: {{ orderItem.quantity }}</div>
-        <div>Purchase Price: ${{ orderItem.purchasePrice }}</div>
-        <!-- Display other order item details as needed -->
+    <li *ngFor="let orderItem of orderItems" class="order-item-block">
+      <div class="order-item-info">
+        <div class="order-item-details">
+          <div>Product ID: {{ orderItem.id }}</div>
+          <div>Quantity: {{ orderItem.quantity }}</div>
+        </div>
+        <div class="purchase-price">Purchase Price: ${{ orderItem.purchasePrice }}</div>
       </div>
     </li>
   </ul>
 </div>
-
 <div *ngIf="orderItems.length === 0">
   <p>No order items found.</p>
 </div>

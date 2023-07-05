@@ -1,0 +1,67 @@
+.order-heading {
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-block {
+    border: 1px solid #eeeeee;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.pending-order {
+    background-color: #FFDAB9; /* light orange */
+}
+
+.completed-order {
+    background-color: #90EE90; /* light green */
+}
+
+.canceled-order {
+    background-color: #d5cfcf; /* light red */
+}
+
+.order-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.complete-order {
+    background-color: #8cf38c; /* green */
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.cancel-order {
+    background-color: #f8a0a0; /* red */
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #fff;
+}

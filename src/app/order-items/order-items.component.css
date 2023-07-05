@@ -1,0 +1,37 @@
+.order-items-heading {
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-item-block {
+    border: 1px solid #eeeeee;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: #CD853F; /* light brown */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.order-item-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.purchase-price {
+    align-self: flex-end;
+}
