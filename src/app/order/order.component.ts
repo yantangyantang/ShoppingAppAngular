@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../service/order/order.service';
 import { Order} from '../shared/model/Order';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth/auth.service';
 import { OrderItem } from '../shared/model/OrderItem';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order',
@@ -11,11 +13,23 @@ import { OrderItem } from '../shared/model/OrderItem';
 })
 export class OrderComponent implements OnInit{
   orders: Order[] = [];
-
-  constructor(private orderService: OrderService, private router: Router) {}
+  isAdmin: boolean = false;
+  private baseUrl = 'http://localhost:8080';
+  constructor(private orderService: OrderService, private authService : AuthService, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.getOrders();
+    this.checkAdminStatus();
+  }
+  checkAdminStatus(): void {
+    this.authService.checkAdmin().subscribe(
+      (data: boolean) => {
+          this.isAdmin = data;
+      },
+      (error) => {
+          console.error(error);
+      }
+    );
   }
 
   getOrders(): void {
@@ -57,6 +71,26 @@ export class OrderComponent implements OnInit{
       },
       (error: any) => {
         console.error('Error retrieving order items:', error);
+      }
+    );
+  }
+  updateOrderStatus(orderId: number, status: number): void {
+    const url = `${this.baseUrl}/order/${orderId}`;
+    const payload = {
+      order_status: status
+    };
+    console.log("test:" + payload);
+
+    this.http.put(url, payload).subscribe(
+      () => {
+        // Order status updated successfully
+        // Refresh the order list
+        this.getOrders();
+        //auto refresh
+        window.location.reload();
+      },
+      (error: any) => {
+        console.error('Error updating order status:', error);
       }
     );
   }
