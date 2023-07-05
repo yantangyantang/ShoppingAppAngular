@@ -1,13 +1,14 @@
-
 <div *ngIf="watchlist && watchlist.length > 0">
-    <h2>Watchlist</h2>
-    <ul>
-      <li *ngFor="let product of watchlist">
-        {{ product.name }} - {{ product.price }}
-        <button (click)="removeFromWatchlist(product.product_id)">Remove</button>
-      </li>
-    </ul>
+  <h2 class="watchlist-heading">Watchlist</h2>
+  <div *ngFor="let product of watchlist" class="product-block">
+      <div class="product-info">
+          <div class="name">{{ product.name }}</div>
+          <div class="description">Description: {{ product.description }}</div>
+          <div class="price">Unit price:  ${{ product.retail_price }}</div>
+      </div>
+      <button class="remove-button" (click)="removeFromWatchlist(product.product_id)">Remove</button>
   </div>
-  <div *ngIf="watchlist && watchlist.length === 0">
-    <p>Your watchlist is empty.</p>
-  </div>
+</div>
+<div *ngIf="watchlist && watchlist.length === 0">
+  <p>Your watchlist is empty.</p>
+</div>

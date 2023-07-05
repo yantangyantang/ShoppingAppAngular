@@ -1,5 +1,5 @@
 <div *ngIf="cart && cart.items.length > 0"> 
-  <h2>Cart</h2> 
+  <h2 class="cart-heading">Cart</h2> 
   <div *ngFor="let cartItem of cart.items" class="product-block">
       <div class="product-info">
           <div class="name">{{ cartItem.product.name }}</div>
@@ -7,16 +7,20 @@
               <div class="price">Price: ${{ cartItem.product.retail_price }}</div>
               <div class="quantity">
                   <button class="quantity-button" >-</button>
+                  <!-- (click)="decreaseQuantity(cartItem)" -->
                   Quantity: {{ cartItem.quantity }}
                   <button class="quantity-button" >+</button>
+                  <!-- (click)="increaseQuantity(cartItem)" -->
               </div>
           </div>
           <div class="subtotal">Subtotal: ${{ cartItem.price }}</div> 
       </div> 
       <!-- <button (click)="removeFromCart(cartItem)">Remove</button> --> 
   </div> 
-  <div class="total-price">Total Price: ${{ cart.totalPrice }}</div> 
-  <button class="purchase-button" (click)="purchase()">Purchase</button> 
+  <div class="total-block">
+      <div class="total-price">Total Price: ${{ cart.totalPrice }}</div> 
+      <button class="purchase-button" (click)="purchase()">Purchase</button>
+  </div>
 </div> 
 <div *ngIf="cart && cart.items.length === 0"> 
   <p>Your cart is empty.</p> 

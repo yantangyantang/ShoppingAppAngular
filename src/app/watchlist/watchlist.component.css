@@ -1,69 +1,55 @@
-.watchlist {
-  margin-top: 2rem;
+.watchlist-heading {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.watchlist h2 {
+.product-block {
+  border: 1px solid #eeeeee;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: #e6ffe6; /* light green */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.product-block:hover {
+  transform: scale(1.05);
+}
+
+.product-info {
+  margin-bottom: 1rem;
+}
+
+.remove-button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  align-self: right;
+}
+
+.name {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333333;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
+  text-align: left;
 }
 
-.watchlist ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.watchlist li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 1.5rem;
-}
-
-.watchlist li:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.watchlist li .product-info {
-  flex-grow: 1;
-}
-
-.watchlist li .product-info .name {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #333333;
-  margin-bottom: 0.5rem;
-}
-
-.watchlist li .product-info .price {
-  font-size: 1.1rem;
-  color: #777777;
-}
-
-.watchlist li button {
-  padding: 0.5rem 1rem;
-  background-color: #7927ca;
-  color: #ffffff;
-  border: none;
-  border-radius: 0.3rem;
+.description {
   font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-align: left;
+  color: #555555;
+  margin-top: 0.5rem;
 }
 
-.watchlist li button:hover {
-  background-color: #6b23b3;
-}
-
-.empty-watchlist-message {
-  margin-top: 2rem;
+.price {
   font-size: 1.2rem;
-  color: #777777;
-  text-align: center;
+  font-weight: bold;
+  text-align: right;
 }

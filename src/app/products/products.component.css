@@ -1,75 +1,60 @@
-ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
+.product-heading {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.5rem;
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+.product-block {
+  border: 1px solid #eeeeee;
+  padding: 2rem;
+  margin-bottom: 1rem;
   border-radius: 0.5rem;
-  background-color: #ffffff;
-  transition: transform 0.3s ease;
-}
-
-li:hover {
-  transform: translateY(-0.2rem);
-}
-
-li a {
+  background-color: #e6f7ff; /* light blue */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: #333333;
+  align-items: stretch;
+  justify-content: space-between;
 }
 
-li a img {
-  height: 12rem;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem 0.5rem 0 0;
+.product-block:hover {
+  transform: scale(1.05);
 }
 
-li a .content {
-  padding: 1rem;
+.name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
 }
 
-li a .name {
+.description {
+  font-size: 1rem;
+  text-align: left;
+  color: #555555;
+}
+
+.price {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 0.5rem;
+  text-align: right;
+  self-align: flex-end;
 }
 
-li a .price {
-  font-size: 1rem;
-  color: #777777;
-  margin-top: 0.2rem;
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-li a .add-to-cart {
-  padding: 0.5rem 1rem;
-  background-color: #7927ca;
-  color: #ffffff;
+.add-to-cart, .add-to-watchlist {
+  background-color: #f2f2f2;
   border: none;
-  border-radius: 0.3rem;
-  font-size: 1rem;
+  padding: 0.5rem;
   cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-li a .add-to-watchlist {
-  padding: 0.5rem 1rem;
-  background-color: #ffca28;
-  color: #333333;
-  border: none;
-  border-radius: 0.3rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
 }

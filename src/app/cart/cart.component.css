@@ -1,14 +1,39 @@
+.cart-heading {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .product-block {
   border: 1px solid #eeeeee;
-  padding: 1rem;
+  padding: 2rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   background-color: #ffe6e6; /* light pink */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
 .product-block:hover {
   transform: scale(1.05);
+}
+
+.total-block {
+  border: 1px solid #eeeeee;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ddfdff; /* another pink */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
 }
 
 .quantity-button {
@@ -17,6 +42,12 @@
   padding: 0.5rem;
   margin: 0 0.5rem;
   cursor: pointer;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
 }
 
 
