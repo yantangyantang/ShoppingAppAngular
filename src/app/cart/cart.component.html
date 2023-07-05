@@ -6,11 +6,10 @@
           <div class="right-section">
               <div class="price">Price: ${{ cartItem.product.retail_price }}</div>
               <div class="quantity">
-                  <button class="quantity-button" >-</button>
-                  <!-- (click)="decreaseQuantity(cartItem)" -->
+                  <button class="quantity-button" (click)="decreaseQuantity(cartItem)">-</button>
+                  
                   Quantity: {{ cartItem.quantity }}
-                  <button class="quantity-button" >+</button>
-                  <!-- (click)="increaseQuantity(cartItem)" -->
+                  <button class="quantity-button" (click)="increaseQuantity(cartItem)">+</button>
               </div>
           </div>
           <div class="subtotal">Subtotal: ${{ cartItem.price }}</div> 

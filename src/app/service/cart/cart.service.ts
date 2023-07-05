@@ -81,6 +81,12 @@ export class CartService {
 
     // return this.http.post<any>(this.apiUrl, this.cart);
   }
+  updateCartItem(productId: number, quantity: number): void {
+    const cartItem = this.cart.items.find(item => item.product.product_id === productId);
+    if (cartItem) {
+      cartItem.quantity = quantity;
+    }
+  }
   cleanCart(): void {
     this.cart = new Cart();
     this.updateCartStorage();

@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './service/jwt.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WatchlistComponent } from './watchlist/watchlist.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     ProductsComponent,
     CartComponent,
     WatchlistComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
