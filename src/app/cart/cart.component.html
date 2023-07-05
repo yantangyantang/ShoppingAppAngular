@@ -1,19 +1,23 @@
-<div *ngIf="cart && cart.items.length > 0">
-    <h2>Cart</h2>
-    <ul>
-      <li *ngFor="let cartItem of cart.items">
-        <div class="product-info">
+<div *ngIf="cart && cart.items.length > 0"> 
+  <h2>Cart</h2> 
+  <div *ngFor="let cartItem of cart.items" class="product-block">
+      <div class="product-info">
           <div class="name">{{ cartItem.product.name }}</div>
-          <div class="price">Price: ${{ cartItem.product.retail_price }}</div>
-          <div class="quantity">Quantity: {{ cartItem.quantity }}</div>
-          <div class="subtotal">Subtotal: ${{ cartItem.price }}</div>
-        </div>
-        <!-- <button (click)="removeFromCart(cartItem)">Remove</button> -->
-      </li>
-    </ul>
-    <div class="total-price">Total Price: ${{ cart.totalPrice }}</div>
-    <button class="purchase-button" (click)="purchase()">Purchase</button>
-  </div>
-  <div *ngIf="cart && cart.items.length === 0">
-    <p>Your cart is empty.</p>
-  </div>
+          <div class="right-section">
+              <div class="price">Price: ${{ cartItem.product.retail_price }}</div>
+              <div class="quantity">
+                  <button class="quantity-button" >-</button>
+                  Quantity: {{ cartItem.quantity }}
+                  <button class="quantity-button" >+</button>
+              </div>
+          </div>
+          <div class="subtotal">Subtotal: ${{ cartItem.price }}</div> 
+      </div> 
+      <!-- <button (click)="removeFromCart(cartItem)">Remove</button> --> 
+  </div> 
+  <div class="total-price">Total Price: ${{ cart.totalPrice }}</div> 
+  <button class="purchase-button" (click)="purchase()">Purchase</button> 
+</div> 
+<div *ngIf="cart && cart.items.length === 0"> 
+  <p>Your cart is empty.</p> 
+</div>

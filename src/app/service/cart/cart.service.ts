@@ -68,9 +68,11 @@ export class CartService {
       console.log('Cart is empty. Cannot proceed with the purchase.');
       return EMPTY;
     }
-    const payload: { product_id: number; quantity: number }[] = this.cart.items.map(item => {
+    const payload: { productId: number; purchasePrice:number; wholesalePrice:number; quantity: number }[] = this.cart.items.map(item => {
       return {
-        product_id: item.product.product_id,
+        productId: item.product.product_id,
+        purchasePrice: item.product.retail_price,
+        wholesalePrice:item.product.wholesale_price,
         quantity: item.quantity
       };
     });
