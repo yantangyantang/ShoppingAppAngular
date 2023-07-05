@@ -5,6 +5,7 @@
           <div class="name">{{ product.name }}</div>
           <div class="description">{{ product.description }}</div>
           <div class="price">Price: ${{ product.retail_price }}</div>
+          <div class="quantity">In stock quantity: {{ product.quantity }}</div>
       </div>
       <div class="button-group">
           <button class="add-to-cart" *ngIf="!isAdmin" (click)="addToCart(product)">Add to Cart</button>

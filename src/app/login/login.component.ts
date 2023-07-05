@@ -42,7 +42,7 @@ export class LoginComponent {
               isAdmin => {
                 if (isAdmin) {
                   // Redirect to admin dashboard
-                  this.router.navigate(['/admin-dashboard']).then(() => {
+                  this.router.navigate(['/products']).then(() => {
                     window.location.reload()
                   });
                 } else {
