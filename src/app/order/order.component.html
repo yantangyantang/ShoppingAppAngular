@@ -1,1 +1,18 @@
-<p>order works!</p>
+<h2>Order History</h2>
+
+<div *ngIf="orders.length > 0">
+  <ul>
+    <li *ngFor="let order of orders">
+      <div class="order-info">
+        <div>Order ID: {{ order.order_id }}</div>
+        <!-- <div>Date: {{ order.date }}</div> -->
+        <!-- Display other order details as needed -->
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="orders.length === 0">
+  <p>No orders found.</p>
+</div>
+
