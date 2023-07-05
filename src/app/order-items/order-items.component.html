@@ -1,0 +1,18 @@
+<h2>Order Items</h2>
+
+<div *ngIf="orderItems.length > 0">
+  <ul>
+    <li *ngFor="let orderItem of orderItems">
+      <div class="order-item">
+        <div>Product ID: {{ orderItem.id }}</div>
+        <div>Quantity: {{ orderItem.quantity }}</div>
+        <div>Purchase Price: ${{ orderItem.purchasePrice }}</div>
+        <!-- Display other order item details as needed -->
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="orderItems.length === 0">
+  <p>No order items found.</p>
+</div>

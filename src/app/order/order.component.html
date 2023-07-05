@@ -1,4 +1,4 @@
-<h2>Order History</h2>
+<!-- <h2>Order History</h2>
 
 <div *ngIf="orders.length > 0">
   <ul>
@@ -8,6 +8,28 @@
         <div>Order Status: {{ getStatusText(order.order_status) }}</div>
         <div>Date Placed: {{ formatDate(order.datePlaced) }}</div>
         <!-- Display other order details as needed -->
+      <!-- </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="orders.length === 0">
+  <p>No orders found.</p>
+</div> --> 
+
+
+<h2>Order History</h2>
+
+<div *ngIf="orders.length > 0">
+  <ul>
+    <li *ngFor="let order of orders">
+      <div class="order-info">
+        <div>
+          
+          <a href="javascript:void(0)" (click)="viewOrderDetails(order.order_id)">Order ID: {{ order.order_id }}</a>
+        </div>
+        <div>Order Status: {{ getStatusText(order.order_status) }}</div>
+        <div>Date Placed: {{ formatDate(order.datePlaced) }}</div>
       </div>
     </li>
   </ul>
@@ -16,5 +38,3 @@
 <div *ngIf="orders.length === 0">
   <p>No orders found.</p>
 </div>
-
-
